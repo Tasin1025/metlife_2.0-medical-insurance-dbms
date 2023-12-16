@@ -1,35 +1,9 @@
-<?php
-include 'config.php';
-session_start();
-$statement = "SELECT * FROM orders";
-$result = mysqli_query($conn, $statement);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders</title>
-    <style>
-      table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  h2{
-    font-size: 25px;
-    text-align: center;
-
-  }
-
-  td, th {
-    border: 1px solid white;
-    padding: 8px;
-  }
-    </style>
+    <title>Manage Stuffs - admin</title>
     <link rel="shortcut icon" href="./assets/health-insurance.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
@@ -63,41 +37,5 @@ $result = mysqli_query($conn, $statement);
 
             </div>
   </nav>
-    <p class=" text-4xl font-semibold text-center p-4 mb-4 "> Recent Orders </p>
-
-<div class="overflow-x-auto p-8 mx-4">
-  <table class="table table-zebra">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th>Name</th>
-        <!-- <th>Number</th> -->
-        <th>Email</th>
-        <th>Package</th>
-        <th>Address</th>
-        <th>Total Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      while ($row = mysqli_fetch_assoc($result)) {
-          echo "<tr>";
-          echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-          // echo "<td>" . htmlspecialchars($row['number']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['method']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['total_price']) . "</td>";
-          echo "</tr>";
-      }
-      ?>
-    </tbody>
-  </table>
-</div>
-
-<?php
-mysqli_close($conn);
-?>
-
 </body>
 </html>
