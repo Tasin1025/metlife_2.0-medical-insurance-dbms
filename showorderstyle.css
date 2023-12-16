@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2{
+    font-size: 25px;
+    text-align: center;
+
+  }
+
+  td, th {
+    border: 1px solid white;
+    padding: 8px;
+  }
+  
