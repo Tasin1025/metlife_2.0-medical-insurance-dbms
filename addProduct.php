@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 ">
+                <a class="btn btn-ghost text-lg text-white font-medium"href="./chart.php">Order chart </a>
                     <a class="btn btn-ghost text-lg text-white font-medium" href="./showOrder.php">Recent Orders</a>
                     <a class="btn btn-ghost text-lg text-white font-medium"href="./addProduct.php">Add Product</a>
                     <a class="btn btn-ghost text-lg text-white font-medium" href="./manageStuffs.php">Manage Stuffs</a>

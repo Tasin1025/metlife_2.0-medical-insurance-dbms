@@ -91,7 +91,7 @@ include 'config.php';
                           <li> Covers essential services with a higher share of costs paid by the insured</li>
                         </p>
                       <div class="card-actions">
-                        <button class="btn btn-primary bg-sky-500 text-white">Buy Now</button>
+                        <button class="btn btn-primary bg-sky-500 text-white" onclick="window.location.href='./checkout.php'">Buy Now </button>
                       </div>
                     </div>
                   </div>
