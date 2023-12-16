@@ -44,7 +44,7 @@ include 'config.php';
                     <a class="btn btn-ghost text-lg text-white font-medium" href="./index.php">Home</a>
                     <a class="btn btn-ghost text-lg text-white font-medium" href="#footer">About Us</a>
                     <a class="btn btn-ghost text-lg text-white font-medium" href="#packages">Packages</a>
-                    <a class="btn btn-ghost text-lg text-white font-medium" href="./login.php" > 👤 Login </a>
+                    <a class="btn btn-ghost text-lg text-white font-medium" href="./login.php" > 👤 </a>
                 </div>
 
                 <div class="flex justify-between flex-row-reverse">
