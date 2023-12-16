@@ -1,3 +1,7 @@
+<?php
+include 'config.php';
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
     <style>
-
-     
 
       *{
         font-family: 'Saira Semi Condensed', sans-serif;
@@ -55,6 +57,8 @@
         </nav>
     </header>
     <main>
+
+
         <section>
             <div>
                 <p class="text-4xl text-center pt-10 font-extrabold font-fatfaace">
@@ -66,15 +70,20 @@
             </div>
             <!-- cards -->
             <p class="text-center text-4xl pt-4 font-bold"> Our Packages </p>
-            <div class="flex justify-around m-4 px-10">
-              
+
+            <div class="flex flex-wrap  justify-around m-4 px-10">
+            <?php
+            $select_products = mysqli_query($conn, "SELECT * FROM `products`");
+            if(mysqli_num_rows($select_products) > 0){
+                while($fetch_product = mysqli_fetch_assoc($select_products)){
+            ?>
                 <!-- bronze card  -->
                 <div class="card w-96 bg-base-100 shadow-xl m-10">
                     <figure class="px-10 pt-10 rounded-full">
-                      <img src="./bronze.jpg" alt="bronze" class="" />
+                      <img src="data:image;base64,<?php echo base64_encode($fetch_product['image']); ?>" alt="bronze" class="" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Bronze Package</h2>
+                      <h2 class="card-title"><?php echo $fetch_product['name']; ?></h2>
                       <p>
                           <li> Lowest monthly premiums</li>
                           <li> Higher out-of-pocket costs (deductibles, co payments, and coinsurance)</li>
@@ -86,8 +95,12 @@
                       </div>
                     </div>
                   </div>
+            <?php 
+            };
+            };
+            ?>
                 <!-- silver card  -->
-                <div class="card w-96 bg-base-100 shadow-xl m-10">
+                <!-- <div class="card w-96 bg-base-100 shadow-xl m-10">
                     <figure class="px-10 pt-10 rounded-full">
                       <img src="./silver.jpg" alt="bronze" class="" />
                     </figure>
@@ -103,9 +116,9 @@
                         <button class="btn btn-primary bg-sky-500 text-white">Buy Now</button>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 <!-- gold card  -->
-                <div class="card w-96 bg-base-100 shadow-xl m-10">
+                <!-- <div class="card w-96 bg-base-100 shadow-xl m-10">
                     <figure class="px-10 pt-10 rounded-full">
                       <img src="./gold.jpg" alt="bronze" class="" />
                     </figure>
@@ -121,8 +134,9 @@
                         <button class="btn btn-primary bg-sky-500 text-white">Buy Now</button>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
             </div>
+    
         </section>
         <section class="flex justify-center m-10">
             <!-- cover  -->

@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','insurance') or die('connection failed');
+$conn = mysqli_connect('localhost','root','','insurance2') or die('connection failed');
 
 ?>
