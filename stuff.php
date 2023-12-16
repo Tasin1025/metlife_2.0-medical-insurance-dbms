@@ -12,14 +12,19 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
-    <link rel="shortcut icon" href="./assets/health-insurance.png" type="image/x-icon">
+    <!--- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link rel="shortcut icon" href="./fav.png" type="image/x-icon">
     <title>Add A Product</title>
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
     
-
+    
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
   </head>
   <body>
@@ -87,26 +92,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </nav>
   
     
-    <h2 class="text-center py-3 text-3xl"><b>Add A Product</b></h2>
-    <section class="container glass my-2 w-50  p-3">
+    <h2 class="text-center py-3 text-3xl"><b>Add Stuff</b></h2>
+    <section class="container  my-2 w-50  p-3">
         <div class="text-center text-2xl font-semibold">
         <form action="addProduct.php" method="post" enctype="multipart/form-data">
             <fieldset>
-                <label class="px-10">Package Name</label>
+                <label class="px-10">Name</label>
                 <input class="border-2 border-solid border-black rounded p-2" type="text" id="product-name" name="product_name" required>
             </fieldset>
             <fieldset>
-                <label>Package Price</label>
+                <label>Email</label>
                 <input class="border-2 border-solid border-black rounded p-2 m-2 mr-7 " type="number" id="product-price" name="product_price" min="0" step="0.01" required>
                 </fieldset>
             <fieldset>
-                <label class="p-2">Package Description</label>
-                <textarea id="product-description" class="form-control" name="product_description" rows="8" required></textarea>  
+                <label class="p-2">Description</label>
+                <textarea id="product-description" class="form-control" name="product_description" rows="6" required></textarea>  
             </fieldset>
             <fieldset class="flex justify-around m-3" >
             <label >Product Image</label><br>
                 <input type="file" id="img" name="img" accept="image/*">
             </fieldset>  
+            <fieldset>
+                <label>Department </label>
+                <select id="product-category" name="product_category">
+                    <option value="games">Makreting</option>
+                    <option value="electronics">Management</option>
+                    <option value="jersey">HR</option>
+            
+                </select>
+            </fieldset>
             <input class="btn btn-success" id="submit" type="submit" value="Add Product">
             </form>
         </div>

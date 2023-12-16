@@ -1,43 +1,53 @@
 <?php
-include 'config.php';
-session_start();
-$statement = "SELECT * FROM orders";
-$result = mysqli_query($conn, $statement);
-?>
+$dataPoints = array(
+    array("label" => "Dhaka", "y" => 41),
+    array("label" => "Chittagong", "y" => 35, "indexLabel" => "Lowest"),
+    array("label" => "Rajshahi", "y" => 50),
+    array("label" => "Barishal", "y" => 45),
+    array("label" => "Noakhali", "y" => 52),
+    array("label" => "Sylhet", "y" => 68),
+    array("label" => "Rangpur", "y" => 38),
+    array("label" => "Coxs Bazar", "y" => 71, "indexLabel" => "Highest"),
 
+);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders</title>
-
-    <style>
-      table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-  }
+    <title>Order Chart - admin </title>
+    <script>
+    window.onload = function () {
+ 
+ var chart = new CanvasJS.Chart("chartContainer", {
+   animationEnabled: true,
+   exportEnabled: true,
+   theme: "light1", // "light1", "light2", "dark1", "dark2"
+   title:{
+     text: "Area wise order chart"
+   },
+   axisY:{
+     includeZero: true
+   },
+   data: [{
+     type: "column", //change type to bar, line, area, pie, etc
+     //indexLabel: "{y}", //Shows y value on all Data Points
+     indexLabelFontColor: "#5A5757",
+     indexLabelPlacement: "outside",   
+     dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+   }]
+ });
+ chart.render();
   
-  h2{
-    font-size: 25px;
-    text-align: center;
-
-  }
-
-  td, th {
-    border: 1px solid white;
-    padding: 8px;
-  }
-    </style>
-    <link rel="shortcut icon" href="./assets/health-insurance.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+ }
+ </script>
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<nav>
+<nav class="">
             <div
                 class="navbar flex justify-between flex-row-reverse md:flex-row-reverse md:bg-sky-500   py-4">
 
@@ -66,41 +76,7 @@ $result = mysqli_query($conn, $statement);
 
             </div>
   </nav>
-    <p class=" text-4xl font-semibold text-center p-4 mb-4 "> Recent Orders </p>
-
-<div class="overflow-x-auto p-8 mx-4">
-  <table class="table table-zebra">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th>Name</th>
-        <!-- <th>Number</th> -->
-        <th>Email</th>
-        <th>Package</th>
-        <th>Address</th>
-        <th>Total Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      while ($row = mysqli_fetch_assoc($result)) {
-          echo "<tr>";
-          echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-          // echo "<td>" . htmlspecialchars($row['number']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['method']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['total_price']) . "</td>";
-          echo "</tr>";
-      }
-      ?>
-    </tbody>
-  </table>
-</div>
-
-<?php
-mysqli_close($conn);
-?>
-
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 </body>
 </html>
