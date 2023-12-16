@@ -47,9 +47,6 @@ $result = mysqli_query($conn, $statement);
 
             </div>
         </nav>
-
-
-
     <p class=" text-4xl font-semibold text-center p-4 mb-4 "> Recent Orders </p>
 
 <div class="overflow-x-auto p-8 mx-4">
@@ -58,7 +55,7 @@ $result = mysqli_query($conn, $statement);
     <thead>
       <tr>
         <th>Name</th>
-        <th>Number</th>
+        <!-- <th>Number</th> -->
         <th>Email</th>
         <th>Package</th>
         <th>Address</th>
