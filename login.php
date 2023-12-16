@@ -31,12 +31,12 @@ include 'config.php';
             </span>
 
             <div class="wrap-input100 validate-input" data-validate="Please enter email">
-                <input class="input100" type="text" name="email" placeholder="Email" required>
+                <input class="input100" type="text" name="email" placeholder="Email" >
                 <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Please enter password">
-                <input class="input100" type="text" name="password" placeholder="Password" required>
+                <input class="input100" type="password" name="password" placeholder="Password" >
                 <span class="focus-input100"></span>
             </div>
 <div class=" flex gap-10 ">
@@ -48,7 +48,7 @@ include 'config.php';
             </div>
             
             <div class="container-contact100-form-btn">
-                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" name="adminlogin" value="Registration">
+                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" name="registration" value="Registration">
             </div>
             </div>
         </form>
@@ -88,6 +88,11 @@ if(isset($_POST['adminlogin']))
             
             echo "<script> alert('Invalid Credentials'); </script>";
                  }
+}  
+if(isset($_POST['registration']))
+{        
+    header("location: ./regform.php");
+    exit();
 }  
 
 ?>

@@ -5,7 +5,7 @@ include 'config.php';
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
@@ -31,26 +31,26 @@ include 'config.php';
             </span>
 
             <div class="wrap-input100 validate-input" data-validate="Please enter Name">
-                <input class="input100" type="text" name="name" placeholder="Name" required>
+                <input class="input100" type="text" name="name" placeholder="Name" >
                 <span class="focus-input100"></span>
             </div>
             <div class="wrap-input100 validate-input" data-validate="Please enter email">
-                <input class="input100" type="text" name="email" placeholder="Email" required>
+                <input class="input100" type="text" name="email" placeholder="Email" >
                 <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate="Please enter password">
-                <input class="input100" type="text" name="password" placeholder="Password" required>
+                <input class="input100" type="text" name="password" placeholder="Password" >
                 <span class="focus-input100"></span>
             </div>
 <div class=" flex gap-10 ">
             
             <div class="container-contact100-form-btn">
-                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" name="adminlogin" value="Register">
+                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" name="register" value="Register">
             </div>
             
             <div class="container-contact100-form-btn">
-                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" value="Back">
+                <input class="bg-sky-500 contact100-form-btn rounded-xl" type="submit" name="back" value="Back">
             </div>
             </div>
         </form>
@@ -61,6 +61,7 @@ include 'config.php';
     
 <?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["register"])) {
 $email = $_POST["email"];
 $password = $_POST["password"];
 $name = $_POST["name"];
@@ -70,6 +71,10 @@ $result = mysqli_query($conn, $sql) ;
 
 header("location: ./login.php");
 mysqli_close($conn);
+    } elseif (isset($_POST["back"])) {
+        header("location: ./login.php");
+        exit();
+    }
 }
 
 ?>
