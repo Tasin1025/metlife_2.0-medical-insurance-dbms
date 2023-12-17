@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="shortcut icon" href="./assets/health-insurance.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -60,17 +62,17 @@ if(isset($_POST['order_btn'])){
          <h3>Thank you for shopping!</h3>
          <div class='order-detail'>
            
-            <span class='total text-center'><b>Grand Total : $".$price_total."/-  </b></span>
+           
          </div>
          <div class='customer-details'>
             <p><b> Customer name : </b><span>".$name."</span> </p>
             <p><b>Contact number : </b><span>".$number."</span> </p>
             <p><b>Your E-mail : </b><span>".$email."</span> </p>
             <p><b>Shipping Address : </b><span>".$address."</span> </p>
-            <p><b>Payment Mode : </b><span>".$method."</span> </p>
+            <p><b>Package : </b><span>".$method."</span> </p>
             
          </div>
-            <a href='shop.php' class='button-div'>Done</a>
+            <a href='./index.php' class='button-div btn btn-success'>Done</a>
          </div>
       </div>
       ";
@@ -80,6 +82,35 @@ if(isset($_POST['order_btn'])){
 }
 
 ?>
+    <header class="">
+        <nav>
+            <div
+                class="navbar flex justify-between flex-row-reverse md:flex-row-reverse md:bg-sky-500 rounded-xl  py-6 ">
+
+                <div class="md:hidden flex-row-reverse">
+                    <button class="btn btn-ghost normal-case text-black">
+                        <span class="icon">
+                            <i class="fas fa-bars"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 ">
+                    <a class="btn btn-ghost text-lg text-white font-medium" href="./index.php">Home</a>
+                    <a class="btn btn-ghost text-lg text-white font-medium" href="#footer">About Us</a>
+                    <a class="btn btn-ghost text-lg text-white font-medium" href="#packages">Packages</a>
+                    <a class="btn btn-ghost text-lg text-white font-medium" href="./login.php" > 👤 Login </a>
+                </div>
+
+                <div class="flex justify-between flex-row-reverse">
+
+                    <a class="btn btn-ghost normal-case text-4xl text-black font-fatface font-bold">
+                       Metlife 2.0 
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 <div class="container">
 
     <section class="checkout-form">
@@ -117,39 +148,9 @@ if(isset($_POST['order_btn'])){
                     border-radius: 3px;
                 }
 
-                .btn {
-                    background-color: blue;
-                }
+                
                 </style>
-    <header class="">
-        <nav>
-            <div
-                class="navbar flex justify-between flex-row-reverse md:flex-row-reverse md:bg-sky-500 rounded-xl  py-6 ">
 
-                <div class="md:hidden flex-row-reverse">
-                    <button class="btn btn-ghost normal-case text-black">
-                        <span class="icon">
-                            <i class="fas fa-bars"></i>
-                        </span>
-                    </button>
-                </div>
-
-                <div class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 ">
-                    <a class="btn btn-ghost text-lg text-white font-medium" href="./index.php">Home</a>
-                    <a class="btn btn-ghost text-lg text-white font-medium" href="#footer">About Us</a>
-                    <a class="btn btn-ghost text-lg text-white font-medium" href="#packages">Packages</a>
-                    <a class="btn btn-ghost text-lg text-white font-medium" href="./login.php" > 👤 Login </a>
-                </div>
-
-                <div class="flex justify-between flex-row-reverse">
-
-                    <a class="btn btn-ghost normal-case text-4xl text-black font-fatface font-bold">
-                       Metlife 2.0 
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
                 <div class="details">
 
                     <div class="inputBox">
@@ -187,7 +188,7 @@ if(isset($_POST['order_btn'])){
                         <input type="text" placeholder="Delivery Address" name="address" required>
                     </div>
                 </div>
-                <input type="submit" value="order now" name="order_btn" class="btn">
+                <input type="submit" value="order now" name="order_btn" class="btn btn-accent btn-active ml-5">
             </form>
         </section>
     </div>

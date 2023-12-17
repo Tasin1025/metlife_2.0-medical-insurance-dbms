@@ -77,7 +77,7 @@ include 'config.php';
             if(mysqli_num_rows($select_products) > 0){
                 while($fetch_product = mysqli_fetch_assoc($select_products)){
             ?>
-                <!-- bronze card  -->
+                <!-- card  -->
                 <div class="card w-96 bg-base-100 shadow-xl m-10">
                     <figure class="px-10 pt-10 rounded-full">
                       <img src="data:image;base64,<?php echo base64_encode($fetch_product['image']); ?>" alt="bronze" class="" />
@@ -85,10 +85,7 @@ include 'config.php';
                     <div class="card-body items-center text-center">
                       <h2 class="card-title"><?php echo $fetch_product['name']; ?></h2>
                       <p>
-                          <li> Lowest monthly premiums</li>
-                          <li> Higher out-of-pocket costs (deductibles, co payments, and coinsurance)</li>
-                          <li> Suitable for relatively healthy individuals</li>
-                          <li> Covers essential services with a higher share of costs paid by the insured</li>
+                      <?php echo $fetch_product['product_details']; ?>
                         </p>
                       <div class="card-actions">
                         <button class="btn btn-primary bg-sky-500 text-white" onclick="window.location.href='./checkout.php'">Buy Now </button>

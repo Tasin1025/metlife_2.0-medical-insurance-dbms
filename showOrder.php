@@ -74,11 +74,11 @@ $result = mysqli_query($conn, $statement);
     <thead>
       <tr>
         <th>Name</th>
-        <!-- <th>Number</th> -->
+        <th>Phone</th>
         <th>Email</th>
         <th>Package</th>
         <th>Address</th>
-        <th>Total Price</th>
+      <!-- <th>Total Price</th> -->
       </tr>
     </thead>
     <tbody>
@@ -86,11 +86,11 @@ $result = mysqli_query($conn, $statement);
       while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr>";
           echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-          // echo "<td>" . htmlspecialchars($row['number']) . "</td>";
+          echo "<td>" . htmlspecialchars($row['number']) . "</td>";
           echo "<td>" . htmlspecialchars($row['email']) . "</td>";
           echo "<td>" . htmlspecialchars($row['method']) . "</td>";
           echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-          echo "<td>" . htmlspecialchars($row['total_price']) . "</td>";
+          //echo "<td>" . htmlspecialchars($row['total_price']) . "</td>";
           echo "</tr>";
       }
       ?>

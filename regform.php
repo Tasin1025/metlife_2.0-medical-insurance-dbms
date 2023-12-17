@@ -68,6 +68,7 @@ $name = $_POST["name"];
 
 $sql = "INSERT INTO users(name,email, password) VALUES ('$name','$email','$password');";
 $result = mysqli_query($conn, $sql) ;
+echo "<script> alert('Registration Successful'); </script>";
 
 header("location: ./login.php");
 mysqli_close($conn);
